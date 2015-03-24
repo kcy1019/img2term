@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 	ImageLoader *loader = ImageLoader::get_instance(argv[0]);
 	vector<vector<vector<uint32_t>>> img;;
 	vector<uint32_t> delay;
-	tie(delay, img) = loader->load(argv[1], cols/2);
+	tie(delay, img) = loader->load(argv[1], cols/2, lines);
 	vector<vector<string>> asc = IMG2ASCII(img).convert_raw();
 
 	clear();

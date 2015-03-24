@@ -27,13 +27,19 @@ public:
 		return inst;
 	}
 	tuple<vector<uint32_t>, vector<vector<vector<uint32_t>>>>
-	load(const string path, uint32_t width)
+	load(const string path, uint32_t width, uint32_t height)
 	{
 		vector<Image> frames;
 		readImages(&frames, path);
 		double rows_by_cols = double(frames.begin() -> rows()) /
 							  double(frames.begin() -> columns());
-		uint32_t height = round(rows_by_cols * width);
+
+		if (height < round(rows_by_cols * width)) {
+			double cols_by_rows = 1. / rows_by_cols;
+			width = round(cols_by_rows * height);
+		} else {
+			height = round(rows_by_cols * width);
+		}
 
 		Geometry new_size(width, height);
 		new_size.aspect(false);
