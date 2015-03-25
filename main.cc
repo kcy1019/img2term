@@ -20,7 +20,6 @@ WINDOW* InitCurses(void)
 	WINDOW *ret = initscr();
 	getmaxyx(ret, lines, cols);
 	nodelay(ret, TRUE);
-	keypad(stdscr, TRUE);
 	timeout(0);
 	start_color();
 	for (int i = 0; i < COLORS; i++)
@@ -82,6 +81,7 @@ int main(int argc, char *argv[])
 
 	clear();
 	refresh();
+	keypad(stdscr, TRUE);
 
 	vector<vector<string>> asc = IMG2ASCII(img).convert_raw();
 	int zoom_ptr = 0;
