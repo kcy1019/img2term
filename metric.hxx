@@ -18,13 +18,13 @@ public:
 class RGBL1Metric: public ColorMetric {
 public:
 	virtual inline long long distance(const uint32_t lhs, const uint32_t rhs) const {
-		unsigned int lr = (lhs & 0xFF0000);
-		unsigned int lg = (lhs & 0x00FF00);
-		unsigned int lb = (lhs & 0x0000FF);
-		unsigned int rr = (rhs & 0xFF0000);
-		unsigned int rg = (rhs & 0x00FF00);
-		unsigned int rb = (rhs & 0x0000FF);
-		return abs(lr - rr) + abs(lg - rg) + abs(lb - rb);
+		unsigned int lr = (lhs & 0xFF0000) >> 16;
+		unsigned int lg = (lhs & 0x00FF00) >> 8;
+		unsigned int lb = (lhs & 0x0000FF) >> 0;
+		unsigned int rr = (rhs & 0xFF0000) >> 16;
+		unsigned int rg = (rhs & 0x00FF00) >> 8;
+		unsigned int rb = (rhs & 0x0000FF) >> 0;
+		return abs(lr - (long long)rr) + abs(lg - (long long)rg) + abs(lb - (long long)rb);
 	}
 
 	virtual inline uint32_t find_closest(uint32_t target,

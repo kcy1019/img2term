@@ -1,16 +1,18 @@
-##img2term
-A simple image viewer for linux terminal.  
+## img2term
+
+A simple image viewer for linux terminal.<br>
 by kcy1019(http://lucent.me)
 
-###Dependency
+### Dependency
 
-- ubuntu: sudo apt-get install libmagick++-dev
-- fedora: sudo yum install ImageMagick-c++-devel
-- archlinux: sudo pacman -S imagemagick
+- ubuntu: `sudo apt-get install libmagick++-dev pkg-config`
+- fedora: `sudo yum install ImageMagick-c++-devel pkgconfig`
+- archlinux: `sudo pacman -S imagemagick pkg-config # (not tested)`
 
-####Usage
+```bash
 $ make       #build  
 $ ./img2term #read help
+```
 
 (*Click the picture to watch video)<br>
-[![example](http://cfile27.uf.tistory.com/original/2465334C55114746188CB6)](https://youtu.be/Jzqr633hpRc)
+[![example](http://cfile8.uf.tistory.com/image/21199644580AF9C125FC1B)](https://youtu.be/Jzqr633hpRc)

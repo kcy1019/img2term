@@ -1,8 +1,8 @@
 CC=g++
-CFLAGS=-o img2term -O3 -std=c++11 `Magick++-config --cppflags --cxxflags --ldflags --libs` -lncurses
+CFLAGS=`pkg-config --cflags Magick++` -o img2term -O3 -std=c++11 `pkg-config --libs Magick++` -lncurses
 
 all:
 	$(CC) main.cc $(CFLAGS)
 
 clean:
-	rm -f img2term ascii.gch xterm.gch metric.gch image.gch
+	rm -f img2term
